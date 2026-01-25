@@ -1,0 +1,37 @@
+import { useState, useEffect } from 'react';
+import { 
+  signInAnonymously, 
+  onAuthStateChanged, 
+  signInWithCustomToken 
+} from 'firebase/auth';
+import { auth } from '../firebase/config';
+
+export const useAuth = (initialToken) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const initAuth = async () => {
+      try {
+        if (initialToken) {
+          await signInWithCustomToken(auth, initialToken);
+        } else {
+          await signInAnonymously(auth);
+        }
+      } catch (err) {
+        console.error("Firebase Auth Error:", err);
+      }
+    };
+
+    initAuth();
+    
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, [initialToken]);
+
+  return { user, loading };
+};

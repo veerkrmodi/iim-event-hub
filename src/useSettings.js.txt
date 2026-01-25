@@ -1,0 +1,55 @@
+import { useState, useEffect } from 'react';
+import { doc, onSnapshot, setDoc } from 'firebase/firestore';
+import { db, appId } from '../firebase/config';
+
+export const useSettings = (user) => {
+  const [clubs, setClubs] = useState([]);
+  const [mailingList, setMailingList] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!user) return;
+
+    const settingsDoc = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
+    
+    const unsubscribe = onSnapshot(settingsDoc, (docSnap) => {
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setClubs(data.clubs || []);
+        setMailingList(data.mailingList || []);
+      } else {
+        // Initialize settings if they don't exist
+        setDoc(settingsDoc, {
+          clubs: ["Finance Club", "Marketing Club", "Consulting Club"],
+          mailingList: ["admin@iim.edu"],
+          createdAt: new Date().toISOString()
+        });
+      }
+      setLoading(false);
+    }, (error) => {
+      console.error("Settings Sync Error:", error);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, [user]);
+
+  const updateSettings = async (updates) => {
+    const settingsDoc = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
+    try {
+      const currentData = await getDoc(settingsDoc);
+      const existingData = currentData.exists() ? currentData.data() : {};
+      
+      await setDoc(settingsDoc, {
+        ...existingData,
+        ...updates,
+        updatedAt: new Date().toISOString()
+      }, { merge: true });
+    } catch (error) {
+      console.error("Update Settings Error:", error);
+      throw error;
+    }
+  };
+
+  return { clubs, mailingList, loading, updateSettings };
+};
