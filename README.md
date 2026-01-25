@@ -26,7 +26,7 @@ A modern, real-time event management platform for educational institutions built
 - **System Configuration**: Control application settings
 
 ## 🚀 Live Demo
-https://github.com/veerkrmodi/iim-event-hub.git
+https://veerkrmodi.github.io/iim-event-hub/
 
 ## 📦 Tech Stack
 
