@@ -46,5 +46,5 @@ https://github.com/veerkrmodi/iim-event-hub.git
 
 Clone the Repository
 ```bash
-git clone https://github.com/your-username/iim-event-hub.git
+git clone https://github.com/veerkrmodi/iim-event-hub.git
 cd iim-event-hub
