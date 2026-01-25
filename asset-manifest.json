@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/iim-event-hub/static/css/main.c4fa7a10.css",
+    "main.js": "/iim-event-hub/static/js/main.62bfc55d.js",
+    "index.html": "/iim-event-hub/index.html",
+    "main.c4fa7a10.css.map": "/iim-event-hub/static/css/main.c4fa7a10.css.map",
+    "main.62bfc55d.js.map": "/iim-event-hub/static/js/main.62bfc55d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c4fa7a10.css",
+    "static/js/main.62bfc55d.js"
+  ]
+}
