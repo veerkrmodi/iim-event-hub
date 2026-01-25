@@ -1,0 +1,20 @@
+import React from 'react';
+import { CalendarCheck } from 'lucide-react';
+
+const Footer = () => {
+  return (
+    <footer className="mt-16 text-center pb-12 border-t border-slate-200 pt-10">
+      <div className="flex justify-center gap-4 mb-4 opacity-50 grayscale hover:grayscale-0 transition-all">
+        <CalendarCheck size={32} className="text-slate-400" />
+      </div>
+      <p className="text-slate-400 text-xs font-bold tracking-widest uppercase">
+        Architected by <span className="text-indigo-600">Veer</span>
+      </p>
+      <p className="text-xs text-slate-400 mt-2">
+        IIM Event Hub v1.0 • All rights reserved
+      </p>
+    </footer>
+  );
+};
+
+export default Footer;
