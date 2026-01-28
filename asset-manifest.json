@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/iim-event-hub/static/css/main.71cc1541.css",
-    "main.js": "/iim-event-hub/static/js/main.8b65fb05.js",
+    "main.js": "/iim-event-hub/static/js/main.d27a9f3f.js",
     "index.html": "/iim-event-hub/index.html",
     "main.71cc1541.css.map": "/iim-event-hub/static/css/main.71cc1541.css.map",
-    "main.8b65fb05.js.map": "/iim-event-hub/static/js/main.8b65fb05.js.map"
+    "main.d27a9f3f.js.map": "/iim-event-hub/static/js/main.d27a9f3f.js.map"
   },
   "entrypoints": [
     "static/css/main.71cc1541.css",
-    "static/js/main.8b65fb05.js"
+    "static/js/main.d27a9f3f.js"
   ]
 }
